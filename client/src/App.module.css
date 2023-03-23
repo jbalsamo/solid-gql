@@ -1,0 +1,28 @@
+.App {
+  text-align: center;
+  font-size: smaller;
+}
+
+.logo {
+  animation: logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: xx-large;
+  color: white;
+}
+
+.link {
+  color: #b318f0;
+}
+
+div.todoList {
+}
