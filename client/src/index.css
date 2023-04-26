@@ -5,7 +5,8 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-  background-color: darkgray;
+  background-color: #222;
+  color: antiquewhite;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -21,8 +22,12 @@ body {
   display: block;
   flex-direction: row;
   margin: 5px;
-  padding: 5px 20px;
+  padding: 10px 10px;
+  color: antiquewhite;
+  background-color: black;
   border: 3px outset black;
+  max-width: 450px;
+  min-width: 400px;
 }
 
 .list-title {
@@ -37,12 +42,17 @@ body {
   margin: 5px;
   padding: 1vh;
   border: 3px outset black;
+  background-color: black;
+  color: antiquewhite;
   align-items: center;
   text-align: center;
+  max-width: 450px;
+  min-width: 400px;
 }
 
 .add-input {
   padding: 10px;
+  padding-right: 15px;
 }
 
 .add-button {

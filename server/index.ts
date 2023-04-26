@@ -7,6 +7,16 @@ let todos = [
     text: "Learn GraphQL and SolidJS.",
     done: false,
   },
+  {
+    id: "2",
+    text: "Build Server.",
+    done: false,
+  },
+  {
+    id: "3",
+    text: "Build SolidJS client.",
+    done: false,
+  },
 ];
 
 const yoga = createYoga({
