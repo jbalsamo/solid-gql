@@ -30,8 +30,6 @@ const App: Component = () => {
   const [text, setText] = createSignal("");
   const [hidden, setHidden] = createSignal(false);
 
-  console.log("Default Hidden: ", hidden());
-
   const toggle = async (id: string) => {
     await client
       .mutation(
@@ -66,7 +64,6 @@ const App: Component = () => {
     refetch();
     setText("");
   };
-
   return (
     <div class="app">
       <Header />
