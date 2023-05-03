@@ -4,7 +4,7 @@ import { For, Show } from "solid-js";
 const Todos: Component = (props) => {
   return (
     <div class="todo-group">
-      <div class="list-title">Todos Items</div>
+      <div class="list-title">Todos Items - {props.count}</div>
       <For each={props.todos}>
         {({ id, done, text }) => (
           <Show when={!props.hidden || (props.hidden && !done)} fallback={""}>

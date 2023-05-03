@@ -1,6 +1,13 @@
 import { createClient } from "@urql/core";
-import type { Component } from "solid-js";
-import { createResource, createSignal, For, Show } from "solid-js";
+import {
+  Component,
+  For,
+  Show,
+  createEffect,
+  createMemo,
+  createResource,
+  createSignal,
+} from "solid-js";
 import AddTodo from "./components/AddTodo";
 import Header from "./components/Header";
 import Todos from "./components/Todos";
@@ -64,10 +71,18 @@ const App: Component = () => {
     refetch();
     setText("");
   };
+
+  const [count, setCount] = createSignal(0);
+  createEffect(() => setCount(todos().length));
   return (
     <div class="app">
       <Header />
-      <Todos todos={todos()} hidden={hidden()} toggle={toggle} />
+      <Todos
+        todos={todos()}
+        hidden={hidden()}
+        toggle={toggle}
+        count={count()}
+      />
       <AddTodo
         text={text()}
         setText={setText}
