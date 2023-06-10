@@ -22,6 +22,10 @@ let todos = [
 const yoga = createYoga({
   schema: createSchema({
     typeDefs: /* GraphQL */ `
+      type Greeting {
+        hello: String!
+      }
+
       type Todo {
         id: ID!
         done: Boolean!
@@ -35,6 +39,7 @@ const yoga = createYoga({
       }
 
       type Query {
+        greeting: String!
         getTodos: [Todo]!
         getConfigs: [Config]!
         getConfig(name: String): Config
@@ -47,6 +52,9 @@ const yoga = createYoga({
     `,
     resolvers: {
       Query: {
+        greeting: () => {
+          return "hello, world";
+        },
         getTodos: () => {
           return todos;
         },

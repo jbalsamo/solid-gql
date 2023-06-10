@@ -30,7 +30,10 @@ const [todos, { refetch }] = createResource(() =>
       {}
     )
     .toPromise()
-    .then(({ data }) => data.getTodos)
+    .then(({ data }) => {
+      console.log(data.getTodos);
+      return data.getTodos;
+    })
 );
 
 const App: Component = () => {
