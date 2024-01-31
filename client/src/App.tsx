@@ -1,19 +1,20 @@
 import { createClient } from "@urql/core";
 import {
   Component,
+  ErrorBoundary,
   For,
   Show,
   createEffect,
   createMemo,
   createResource,
-  createSignal,
+  createSignal
 } from "solid-js";
 import AddTodo from "./components/AddTodo";
 import Header from "./components/Header";
 import Todos from "./components/Todos";
 
 const client = createClient({
-  url: "http://localhost:4000/graphql",
+  url: "http://localhost:4000/graphql"
 });
 
 const [todos, { refetch }] = createResource(() =>
@@ -30,8 +31,11 @@ const [todos, { refetch }] = createResource(() =>
       {}
     )
     .toPromise()
+    .catch((err) => {
+      console.error(err);
+      throw err;
+    })
     .then(({ data }) => {
-      console.log(data.getTodos);
       return data.getTodos;
     })
 );
@@ -52,7 +56,7 @@ const App: Component = () => {
         `,
         {
           id,
-          done: !todos().find((todo) => todo.id === id).done,
+          done: !todos().find((todo) => todo.id === id).done
         }
       )
       .toPromise();
@@ -76,9 +80,9 @@ const App: Component = () => {
   };
 
   const [count, setCount] = createSignal(0);
-  createEffect(() => setCount(todos().length));
+  createEffect(() => setCount(todos()?.length ? todos().length : 0));
   return (
-    <div class="app">
+    <div class='app'>
       <Header />
       <Todos
         todos={todos()}
